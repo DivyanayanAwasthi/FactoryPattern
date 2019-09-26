@@ -12,8 +12,9 @@ public class NYStylePizzaStore extends PizzaStore {
 	public Pizza createPizza(String type) {
 
 		Pizza pizza = null;
+		PizzaIndegredientFactory pizzaIngridientFactory=new NYPizzaIndgredientFactory();
 		if (type.equalsIgnoreCase("cheese")) {
-			pizza = new NYStyleCheesePizza();
+			pizza = new NYStyleCheesePizza(pizzaIngridientFactory);
 		} else if (type.equalsIgnoreCase("pepperoni")) {
 			pizza = new NYStylePeperoniPizza();
 		} else if (type.equalsIgnoreCase("clam")) {

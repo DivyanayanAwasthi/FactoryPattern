@@ -10,12 +10,13 @@ import com.factory.FactoryPattern.pizzas.PizzaStore;
 public class CaliforniaStylePizzaStore extends PizzaStore {
 
 	public Pizza createPizza(String type) {
-
+		
+		PizzaIndegredientFactory pizzaIngridientFactory=new CaliforniaPizzaIndgredientFactory();
 		Pizza pizza = null;
 		if (type.equalsIgnoreCase("cheese")) {
 			pizza = new CaliforniaStyleCheesePizza();
 		} else if (type.equalsIgnoreCase("pepperoni")) {
-			pizza = new CaliforniaStylePeperoniPizza();
+			pizza = new CaliforniaStylePeperoniPizza(pizzaIngridientFactory);
 		} else if (type.equalsIgnoreCase("clam")) {
 			pizza = new CaliforniaStyleClamPizza();
 		} else if (type.equalsIgnoreCase("veggie")) {

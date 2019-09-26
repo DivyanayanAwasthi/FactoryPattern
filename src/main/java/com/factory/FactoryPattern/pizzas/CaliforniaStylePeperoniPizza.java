@@ -1,11 +1,15 @@
 package com.factory.FactoryPattern.pizzas;
 
-public class CaliforniaStylePeperoniPizza extends Pizza {
+import com.factory.FactoryPattern.pizzaFactory.PizzaIndegredientFactory;
 
-	public CaliforniaStylePeperoniPizza() {
+public class CaliforniaStylePeperoniPizza extends Pizza {
+	
+	PizzaIndegredientFactory pizzaIndegredientFactory=null;
+	public CaliforniaStylePeperoniPizza(PizzaIndegredientFactory pizzaIndegredientFactory) {
+		this.pizzaIndegredientFactory=pizzaIndegredientFactory;
 		name = "California style Pepporoni Pizza";
-		dough = "Thick Curst Dough";
-		sauce = "Mariana sauce";
+		dough = pizzaIndegredientFactory.createDough();
+		sauce = pizzaIndegredientFactory.createSauce();
 		toppins.add("Grated Regganio Cheese");
 	}
 	

@@ -1,11 +1,18 @@
 package com.factory.FactoryPattern.pizzas;
 
+import com.factory.FactoryPattern.pizzaFactory.PizzaIndegredientFactory;
+
 public class NYStyleCheesePizza extends Pizza {
 
-	public NYStyleCheesePizza() {
+	PizzaIndegredientFactory pizzaIngridientFactory = null;
+
+	public NYStyleCheesePizza(PizzaIndegredientFactory pizzaIngridientFactory) {
+		this.pizzaIngridientFactory = pizzaIngridientFactory;
+		System.out.println("Preparing Pizza");
 		name = "NY style Cause and Cheese Pizza";
-		dough = "Thin Curst Dough";
-		sauce = "Mariana sauce";
+		dough = pizzaIngridientFactory.createDough();
+		sauce = pizzaIngridientFactory.createSauce();
+		cheese = pizzaIngridientFactory.createCheese();
 		toppins.add("Grated Regganio Cheese");
 	}
 
